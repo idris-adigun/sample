@@ -1,15 +1,26 @@
+import { NgxsComponent } from './components/ngxs/ngxs.component';
+import { ChartsComponent } from './components/charts/charts.component';
+import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { MaterialComponent } from './components/material/material.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'folder/Inbox',
-    pathMatch: 'full'
+    path: 'login',
+    component: LoginComponent
   },
   {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+    path: '',
+    component: DashboardComponent,
+    children: [
+      { path: '', component: ChartsComponent },
+      { path: 'ngxs', component: NgxsComponent },
+      { path: 'material', component: MaterialComponent },
+      { path: 'profile', component: ProfileComponent },
+    ]
   }
 ];
 
@@ -19,4 +30,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
