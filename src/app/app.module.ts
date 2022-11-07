@@ -12,10 +12,11 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 @NgModule({
   declarations: [AppComponent, DashboardComponent, LoginComponent, ProfileComponent, ToolbarComponent, MaterialComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, StateModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, StateModule, HighchartsChartModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
